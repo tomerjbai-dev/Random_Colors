@@ -32,19 +32,10 @@
     button:hover {
       background-color: #444;
     }
-
-    #color-code {
-      font-size: 18px;
-      padding: 6px 12px;
-      border-radius: 6px;
-      background-color: rgba(255, 255, 255, 0.8);
-      direction: ltr;
-    }
   </style>
 </head>
 <body>
   <button id="change-color">החלף צבע רקע</button>
-  <div id="color-code">#FFFFFF</div>
 
   <script>
     function getRandomColor() {
@@ -55,7 +46,7 @@
     document.getElementById('change-color').addEventListener('click', function () {
       const color = getRandomColor();
       document.body.style.backgroundColor = color;
-      document.getElementById('color-code').textContent = color;
+      this.textContent = color;
     });
   </script>
 </body>
