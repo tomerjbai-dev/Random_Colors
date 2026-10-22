@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>צבעים רנדומליים</title>
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      transition: background-color 0.4s ease;
+    }
+
+    button {
+      padding: 16px 32px;
+      font-size: 20px;
+      border: none;
+      border-radius: 8px;
+      background-color: #222;
+      color: #fff;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    button:hover {
+      background-color: #444;
+    }
+
+    #color-code {
+      font-size: 18px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      background-color: rgba(255, 255, 255, 0.8);
+      direction: ltr;
+    }
+  </style>
+</head>
+<body>
+  <button id="change-color">החלף צבע רקע</button>
+  <div id="color-code">#FFFFFF</div>
+
+  <script>
+    function getRandomColor() {
+      const hex = Math.floor(Math.random() * 0x1000000).toString(16).padStart(6, '0');
+      return '#' + hex.toUpperCase();
+    }
+
+    document.getElementById('change-color').addEventListener('click', function () {
+      const color = getRandomColor();
+      document.body.style.backgroundColor = color;
+      document.getElementById('color-code').textContent = color;
+    });
+  </script>
+</body>
+</html>
